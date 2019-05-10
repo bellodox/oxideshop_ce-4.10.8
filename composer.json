@@ -1,0 +1,47 @@
+{
+    "name": "oxid-esales/eshop",
+    "description": "This file is mean to be used for OXID eShop development internally. Use this file to get OXID eShop dependencies. Use modules/composer.json for project dependencies.",
+    "type": "project",
+    "keywords": ["oxid", "modules", "eShop"],
+    "homepage": "https://www.oxid-esales.com/en/home.html",
+    "license": [
+        "GPL-3.0",
+        "proprietary"
+    ],
+    "require-dev": {
+        "oxid-esales/testing-library": "^1.0.5",
+        "oxid-esales/coding-standards": "^2.0.0",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "etsy/phpunit-extensions": "~0.7"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ]
+    },
+    "config": {
+        "platform": {
+            "php": "5.3.25"
+        }
+    },
+    "extra": {
+        "incenteev-parameters": {
+            "file": "test_config.yml",
+            "dist-file": "vendor/oxid-esales/testing-library/test_config.yml.dist",
+            "parameter-key": "mandatory_parameters",
+            "env-map": {
+                "shop_path": "SHOP_PATH",
+                "shop_tests_path": "SHOP_TESTS_PATH",
+                "partial_module_paths": "PARTIAL_MODULE_PATHS"
+            }
+        },
+        "oxideshop": {
+            "source-path": "./"
+        }
+    }
+}
